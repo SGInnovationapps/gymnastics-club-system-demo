@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保護者の画面 | Clubena デモ</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231e4e9c%22/%3E%3Cpath d=%22M9 22c3-9 11-9 14 0%22 stroke=%22white%22 stroke-width=%223%22 fill=%22none%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2216%22 cy=%2210%22 r=%223%22 fill=%22white%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/demo.css">
+</head>
+<body>
+<div id="bar"></div>
+<div class="stage">
+  <div class="phone" id="phone" aria-label="保護者の画面（LINEミニアプリ）"></div>
+  <aside class="guide" aria-label="この画面で試せること">
+    <h2>保護者の画面</h2>
+    <p>LINEのトークにあるリンクから開く、スマホの画面です。ログインの画面はありません（LINEが本人を確かめます）。デモの保護者は「上野 美咲」さん。子は はると（小3）と ゆい（年長）です。</p>
+    <ol>
+      <li>上の「はると」「ゆい」で、子を切り替える</li>
+      <li>ホームの「この日を欠席する」→ 理由を選んで送る → 振替できる回がつく</li>
+      <li>「欠席・振替」→「振替先を選ぶ」→ 空きのある日だけが並ぶ</li>
+      <li>下の「予定」で11月と12月を見る。12月は事務担当が確定するまで「まだ確定していません」</li>
+      <li>「お知らせ」を開くと、未読の印が消える</li>
+      <li>メニューの「月謝」「成長の記録」「登録情報」</li>
+    </ol>
+    <div class="guide-box">
+      <p><b>ほかの立場と、つながっています</b></p>
+      <p>事務担当が「12月分を確定する」を押すと、ここの予定とお知らせに出ます。コーチが出席を記録すると「出席確認済み」になります。</p>
+      <div class="guide-switch"><a class="btn sub sm" href="admin.html#/sessions">事務担当の開講情報へ</a><a class="btn sub sm" href="coach.html">コーチの画面へ</a></div>
+    </div>
+  </aside>
+</div>
+<script type="module" src="assets/parent.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>コーチの画面 | Clubena デモ</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%231e4e9c%22/%3E%3Cpath d=%22M9 22c3-9 11-9 14 0%22 stroke=%22white%22 stroke-width=%223%22 fill=%22none%22 stroke-linecap=%22round%22/%3E%3Ccircle cx=%2216%22 cy=%2210%22 r=%223%22 fill=%22white%22/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/demo.css">
+</head>
+<body>
+<div id="bar"></div>
+<div class="stage">
+  <div class="phone" id="phone" aria-label="コーチの画面（スマホ）"></div>
+  <aside class="guide" aria-label="この画面で試せること">
+    <h2>コーチの画面</h2>
+    <p>体育館の現場でスマホで使う画面です。デモのコーチは「佐藤 ゆか」さん。担当は幼児クラス（火・金）と小学生クラスAです。</p>
+    <ol>
+      <li>「今日のクラス」の小学生クラスAで「出席を記録」</li>
+      <li>名前の右のボタンを押すたびに「出席」「欠席」が切り替わる。振替で来る清水さくらさんには「振替」の印</li>
+      <li>「緊急連絡先」を開くと、見た記録が残る（事務担当の名簿で確かめられる）</li>
+      <li>「出欠の未入力」から、記録が抜けている回を埋める</li>
+      <li>「級の付け替え」で何人か選んで級を変える → 保護者の「成長の記録」に出る</li>
+      <li>「フィードバック」で書いて公開する</li>
+    </ol>
+    <div class="guide-box">
+      <p><b>シフト希望は、12月分が確定してから</b></p>
+      <p>事務担当が「12月分を確定する」を押すと、「シフト希望」で ○△× を選べるようになります。</p>
+      <div class="guide-switch"><a class="btn sub sm" href="admin.html#/sessions">事務担当の開講情報へ</a><a class="btn sub sm" href="parent.html#/schedule">保護者の予定へ</a></div>
+    </div>
+  </aside>
+</div>
+<script type="module" src="assets/coach.js"></script>
+</body>
+</html>
