@@ -1,7 +1,7 @@
 // =============================================================================
 // Clubena デモ：保護者の画面（LINEミニアプリ・スマホ）
 //   デモの保護者は「上野 美咲」さん。子は はると（小3）と ゆい（年長）
-//   下のタブ：ホーム／予定／お知らせ／メニュー（仕様書 6章）
+//   下のタブ：ホーム／予定／お知らせ／メニュー
 // =============================================================================
 import {
   db, commit, onChange, esc, on, TODAY, demoBar, bindDemoBar, newId, showToast,
@@ -310,7 +310,7 @@ function feesView() {
         ${cur.radj ? `<li><span>${esc(cur.radjNote)}（毎月）</span><span>${signedYen(cur.radj)}</span></li>` : ''}
         ${cur.oadj ? `<li><span>${esc(cur.oadjNote)}（今月だけ）</span><span>${signedYen(cur.oadj)}</span></li>` : ''}
       </ul>
-      <p class="small" style="margin-top:8px">お支払いの方法は、これまでどおりクラブの案内に沿ってお願いします（アプリでは支払いはできません）。</p>
+      <p class="small" style="margin-top:8px">お支払いの方法は、これまでどおりクラブの案内に沿ってお願いします。</p>
     </section>` : '<section class="p-card"><p>まだ請求はありません。</p></section>'}
     <section class="p-card"><h2>これまで</h2><ul class="p-breakdown">${recs.slice(1).map((r) => `<li><span>${ymLabel(r.month)}</span><span>${yen(feeTotal(r))} ${r.paid ? '<span class="tag ok">入金済み</span>' : '<span class="tag warn">未入金</span>'}</span></li>`).join('') || '<li>ありません</li>'}</ul></section>`, 'menu');
 }
@@ -388,7 +388,7 @@ function termsView() {
     <section class="p-card"><h2>会員規約（第${t.v}版）</h2><div class="p-terms">${esc(t.body)}</div></section>`, 'menu');
 }
 
-// 規約が改定されたら、開いたときに同意し直す画面を出す（工程4-9）
+// 規約が改定されたら、開いたときに同意し直す画面を出す
 function reconsentView() {
   const t = termsLatest();
   const need = kids().filter((k) => k.consent.v < t.v);

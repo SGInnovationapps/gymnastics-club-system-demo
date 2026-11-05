@@ -640,7 +640,8 @@ tr.is-short td { background: var(--warn-soft); }
 .i-principles { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 0; padding: 0; list-style: none; }
 .i-principles li { padding: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; }
 .i-principles .i-letter { display: block; font-size: 28px; font-weight: bold; color: var(--accent); line-height: 1; margin-bottom: 8px; }
-.i-principles b { display: block; margin-bottom: 4px; }
+.i-principles b { display: block; margin-bottom: 4px; word-break: auto-phrase; text-wrap: balance; }
+.i-sub, .i-hero .i-lead { word-break: auto-phrase; }
 .i-principles p { margin: 0; font-size: 14px; color: var(--text-sub); }
 .i-foot { padding: 28px 0 48px; font-size: 13px; color: var(--text-sub); border-top: 1px solid var(--line); }
 .i-foot p { margin: 0 0 6px; }

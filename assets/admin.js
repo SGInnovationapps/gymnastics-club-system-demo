@@ -2,7 +2,7 @@
 // Clubena デモ：事務担当の画面（パソコン）
 //   デモの事務担当は「中川さん」
 //   ホーム（やること）／入会承認／開講情報／シフト確定／会員名簿／月謝チェックリスト／お知らせ／
-//   Excel取り込み・書き出し／設定（仕様書 6章）
+//   Excel取り込み・書き出し／設定
 // =============================================================================
 import {
   db, commit, onChange, esc, on, STAGES, TODAY, NOW_TIME, demoBar, bindDemoBar, newId, showToast, copyText, appUrl,
@@ -262,7 +262,7 @@ function confirmMonth(ym) {
   commit(`${mLabel(ym)}分を確定しました`);
 }
 
-// 確定のあとの中止・会場変更（工程6-5）
+// 確定のあとの中止・会場変更
 function cancelSession(s, note) {
   s.status = 'cancelled';
   s.note = note;
@@ -396,7 +396,7 @@ function feesView() {
   rows.sort((a, b) => (a.m.no ?? 9999) - (b.m.no ?? 9999));
   return shell(`
     <h1 class="a-h1">月謝チェックリスト</h1>
-    <p class="a-lead">請求額 ＝ 基本額 ＋ 毎月の調整 ＋ 今月だけの調整。入金を確かめたら「入金」にチェックを入れます（アプリでは支払いはできません）。</p>
+    <p class="a-lead">請求額 ＝ 基本額 ＋ 毎月の調整 ＋ 今月だけの調整。入金を確かめたら「入金」にチェックを入れます（集金はこれまでどおりの方法で行います）。</p>
     <nav class="a-tabs" aria-label="月">${months.map((m) => `<a href="#/fees" data-fee-month="${m}" ${m === ym ? 'aria-current="page"' : ''}>${ymLabel(m)}</a>`).join('')}</nav>
     <section class="a-card">
       <div class="a-toolbar">
@@ -499,7 +499,7 @@ function excelView() {
     <div class="a-grid">
       <section class="a-card">
         <h2>Excelから取り込む</h2>
-        <p class="small">運営から受け取ったひな形（クラス・料金プラン・タグ・名簿）に書いたファイルを選びます。ファイルはこの端末の中で読みます。</p>
+        <p class="small">Clubena がお渡しするひな形（クラス・料金プラン・タグ・名簿）に書いたファイルを選びます。ファイルはこの端末の中で読みます。</p>
         ${x ? res : `<div class="actions"><button type="button" class="btn" data-excel="bad">見本のファイルで試す</button></div><p class="small">（デモ：実際はここでファイルを選びます）</p>`}
       </section>
       <section class="a-card">
@@ -552,7 +552,7 @@ function settingsView() {
   let body = '';
   if (t === 'stages') {
     body = `<h2>機能の段階</h2>
-      <p class="small">最初は使う画面を少なくして、慣れてから順に開きます（実際は運営が切り替えます）。閉じている機能は、メニュー・ボタン・タブのどこにも出ません。保護者・コーチの画面でも確かめてください。</p>
+      <p class="small">最初は使う画面を少なくして、慣れてから順に開きます（切り替えは Clubena がお手伝いします）。閉じている機能は、メニュー・ボタン・タブのどこにも出ません。保護者・コーチの画面でも確かめてください。</p>
       <div class="a-stages" role="radiogroup" aria-label="機能の段階">${[
         [1, '第1段階（運用開始〜2週間）', '予定・欠席連絡・出席記録・お知らせ'],
         [2, '第2段階（担当者が慣れてから）', '＋ 月謝・振替・級（タグ）'],

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Clubena デモ</title>
-<meta name="description" content="体操クラブ向け会員管理アプリ Clubena の操作できるモックアップ（社内共有用・架空のデータ）">
+<meta name="description" content="体操クラブ向け会員管理アプリ Clubena の、操作できるデモ（架空のデータ）">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,7 +23,7 @@
     <ul class="i-facts">
       <li>アプリのダウンロード不要</li>
       <li>事務担当はパソコンのブラウザで</li>
-      <li>持つ個人情報は5項目だけ</li>
+      <li>預かる個人情報は最小限</li>
       <li>機能は段階的に開く</li>
     </ul>
     <div class="actions">
@@ -100,23 +100,23 @@
 
 <section class="i-sec" aria-labelledby="scope-h">
   <div class="i-wrap">
-    <h2 id="scope-h">v1でできること</h2>
-    <p class="i-sub">仕様書 v2.0 の10の機能と、導入・運用のための2つの仕組みです。</p>
+    <h2 id="scope-h">できること</h2>
+    <p class="i-sub">クラブの運営に必要な10の機能と、導入・運用を楽にする2つの仕組みです。</p>
     <table class="i-table">
       <thead><tr><th>機能</th><th>一言でいうと</th><th>デモで見る場所</th></tr></thead>
       <tbody>
-        <tr><td>会員登録</td><td>名前・ふりがな・生年月日・緊急連絡先・会員規約の同意だけ。承認すると会員番号が出る。学年は生年月日から毎回計算</td><td><a href="admin.html#/approvals">事務：入会承認</a>・<a href="parent.html#/apply">保護者：入会を申し込む</a></td></tr>
+        <tr><td>会員登録</td><td>入会の申込はLINEから。入力は名前・ふりがな・生年月日・緊急連絡先と、会員規約への同意だけ。承認すると会員番号が出る。学年は生年月日から自動で計算</td><td><a href="admin.html#/approvals">事務：入会承認</a>・<a href="parent.html#/apply">保護者：入会を申し込む</a></td></tr>
         <tr><td>開講情報</td><td>抽選の結果を入れて、月ごとに1回で確定・公開する</td><td><a href="admin.html#/sessions">事務：開講情報</a></td></tr>
         <tr><td>スケジュール</td><td>確定した日をクラス別に見せる。確定前は「○日ごろ確定します」</td><td><a href="parent.html#/schedule">保護者：予定</a></td></tr>
         <tr><td>出欠管理</td><td>保護者の事前の欠席連絡（締切は自動判定）と、コーチの当日の出席記録</td><td><a href="parent.html#/absence">保護者：欠席</a>・<a href="coach.html#/attend">コーチ：出席の記録</a></td></tr>
         <tr><td>振替</td><td>欠席・中止で振替できる回がつき、保護者が空きのある日から選ぶ。ルールはクラブごと</td><td><a href="parent.html#/absence">保護者：欠席・振替</a>・<a href="admin.html#/settings">事務：振替のルール</a></td></tr>
-        <tr><td>シフト管理</td><td>コーチが ○△× を出し、事務が担当を決めて確定。足りない日は色がつく</td><td><a href="coach.html#/wishes">コーチ：シフト希望</a>・<a href="admin.html#/shifts">事務：シフト確定</a></td></tr>
+        <tr><td>シフト管理</td><td>コーチが ○△× を出し、事務担当が担当を決めて確定。足りない日は色がつく</td><td><a href="coach.html#/wishes">コーチ：シフト希望</a>・<a href="admin.html#/shifts">事務：シフト確定</a></td></tr>
         <tr><td>お知らせ</td><td>全員・クラス・タグ・個人に送る。既読の家庭数が見える。LINEで流す一言をコピー</td><td><a href="admin.html#/notices">事務：お知らせ</a></td></tr>
         <tr><td>フィードバックと引き継ぎ</td><td>保護者に見せる記録と、コーチだけのメモを分けて持つ</td><td><a href="coach.html#/feedback">コーチ：フィードバック</a>・<a href="coach.html#/handover">引き継ぎメモ</a></td></tr>
-        <tr><td>月謝管理</td><td>固定制・回数制の請求額、入金チェック、未入金の方へのお知らせ。決済はしない</td><td><a href="admin.html#/fees">事務：月謝チェックリスト</a>・<a href="parent.html#/fees">保護者：月謝</a></td></tr>
+        <tr><td>月謝管理</td><td>固定制・回数制の請求額、入金チェック、未入金の方へのお知らせ。集金はこれまでどおりの方法で（アプリでの決済はありません）</td><td><a href="admin.html#/fees">事務：月謝チェックリスト</a>・<a href="parent.html#/fees">保護者：月謝</a></td></tr>
         <tr><td>タグ</td><td>級・コースなどをクラブごとに決め、付け替えると記録が残る</td><td><a href="coach.html#/tags">コーチ：級の付け替え</a>・<a href="parent.html#/growth">保護者：成長の記録</a></td></tr>
         <tr><td>Excelの出し入れ</td><td>取り込みは並べて確かめてから。書き出しに緊急連絡先は入れない</td><td><a href="admin.html#/excel">事務：Excel</a></td></tr>
-        <tr><td>機能の段階的な解放</td><td>最初は予定・欠席・出席・お知らせだけ。慣れてから月謝・振替・級、最後にシフトなど</td><td><a href="admin.html#/settings">事務：設定</a></td></tr>
+        <tr><td>機能を少しずつ開ける</td><td>最初は予定・欠席・出席・お知らせだけ。慣れてから月謝・振替・級、最後にシフトなど</td><td><a href="admin.html#/settings">事務：設定</a></td></tr>
       </tbody>
     </table>
   </div>
@@ -124,14 +124,14 @@
 
 <section class="i-sec" aria-labelledby="principles-h">
   <div class="i-wrap">
-    <h2 id="principles-h">設計の5つの原則</h2>
-    <p class="i-sub">画面の作りは、どれもこの5つから決めています。</p>
+    <h2 id="principles-h">Clubena が大切にしている5つのこと</h2>
+    <p class="i-sub">画面の作りは、どれもこの5つから考えています。</p>
     <ul class="i-principles">
-      <li><span class="i-letter">A</span><b>開講日は事前に確定しない</b><p>抽選の結果が出るまで「未確定」。確定は月に1回、まとめて行う。</p></li>
-      <li><span class="i-letter">B</span><b>担当者のリテラシーが低い前提</b><p>階層は2段まで。入力より選択。同じ手入力を毎月させない。</p></li>
-      <li><span class="i-letter">C</span><b>LINEが常に横にある</b><p>アプリ内チャットは作らない。大事な更新は、いつものLINEで一言流す。</p></li>
-      <li><span class="i-letter">D</span><b>個人情報は最小限</b><p>システムには5項目だけ。住所などは紙で、会員番号で結びつける。</p></li>
-      <li><span class="i-letter">E</span><b>導入にクラブの手をかけない</b><p>初期設定は運営が代行。機能は段階的に開く。</p></li>
+      <li><span class="i-letter">A</span><b>抽選で決まる練習日に、そのまま対応</b><p>抽選の結果が出るまでは「未確定」として扱い、決まったら月に1回まとめて公開。保護者のホームにも知らせが出ます。</p></li>
+      <li><span class="i-letter">B</span><b>デジタルの苦手な現場指導員でも使いこなせる</b><p>画面は2段まで。文字を打つより、選ぶだけ。同じ入力を毎月くり返さなくてすみます。</p></li>
+      <li><span class="i-letter">C</span><b>連絡は、いつものLINEのまま</b><p>個別のやり取りはこれまでどおりLINEで。アプリは予定・出欠・月謝の記録に集中し、大事な更新はLINEで流す一言の文例まで用意します。</p></li>
+      <li><span class="i-letter">D</span><b>預かる個人情報は最小限</b><p>アプリに入れるのは名前・生年月日・緊急連絡先など5項目だけ。住所などは紙のまま、会員番号で結びつけます。</p></li>
+      <li><span class="i-letter">E</span><b>導入の手間をかけさせない</b><p>今の名簿（Excel）から初期設定を Clubena がお手伝い。機能は、慣れに合わせて少しずつ開けます。</p></li>
     </ul>
   </div>
 </section>
@@ -139,9 +139,9 @@
 <footer class="i-foot">
   <div class="i-wrap">
     <p><b>このデモについて</b></p>
-    <p>社内共有用のモックアップです。名前・電話番号などはすべて架空です。本物のデータベース・LINEにはつながっていません（ログイン・送信はしません）。</p>
+    <p>操作して雰囲気をつかんでいただくためのデモです。クラブ名・名前・電話番号などはすべて架空です。本物のデータベース・LINEにはつながっていません（ログイン・送信はしません）。</p>
     <p>操作した内容は、このブラウザの中にだけ保存されます。いちばん上の「データを最初に戻す」で、いつでも最初の状態に戻せます。デモの「今日」は 2026年11月5日（木）の昼に決めてあります。</p>
-    <p>もとにした仕様：Clubena 機能仕様書 v2.0（2026-10-14）。実際のアプリは、この仕様にそって工程ごとに作っています。</p>
+    <p>画面や機能は開発中のもので、正式版では変わることがあります。</p>
   </div>
 </footer>
 

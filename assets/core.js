@@ -12,7 +12,7 @@
 
 export const TODAY = '2026-11-05';
 export const NOW_TIME = '12:00';
-const KEY = 'clubena-demo-v1';
+const KEY = 'clubena-demo-v2';   // データの形を変えたら番号を上げる（前のデータは読まない）
 
 // --- 日付の道具（'YYYY-MM-DD' の文字列で扱う）-------------------------------------
 const WD = '日月火水木金土';
@@ -35,7 +35,7 @@ export const mLabel = (ym) => `${Number(ym.slice(5, 7))}月`;
 export const yen = (n) => `${Number(n).toLocaleString('ja-JP')}円`;
 export const signedYen = (n) => `${n > 0 ? '+' : n < 0 ? '−' : ''}${Math.abs(n).toLocaleString('ja-JP')}円`;
 
-// 学年（仕様書 4-1-1。4月2日〜翌年4月1日生まれが同じ学年。保存せず毎回計算する）
+// 学年（4月2日〜翌年4月1日生まれが同じ学年。保存せず毎回計算する）
 export function gradeNumber(birth, on = TODAY) {
   const [by, bm, bd] = birth.split('-').map(Number);
   const [oy, om] = on.split('-').map(Number);
@@ -60,7 +60,7 @@ export function ageOf(birth, on = TODAY) {
 // 文字を HTML に入れるとき
 export const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
-// --- 機能の段階（仕様書 10-3）----------------------------------------------------------
+// --- 機能の段階----------------------------------------------------------
 export const STAGES = {
   1: ['schedule', 'absence', 'attendance', 'notices'],
   2: ['schedule', 'absence', 'attendance', 'notices', 'fees', 'makeup', 'tags'],
@@ -77,7 +77,7 @@ const CLASSES = [
   { id: 'c2', name: '小学生クラスA', gmin: 1, gmax: 3, wd: 4, start: '17:00', end: '18:00', venue: '西体育館 サブアリーナ', cap: 12, need: 2 },
   { id: 'c3', name: '小学生クラスB', gmin: 4, gmax: 6, wd: 6, start: '10:00', end: '11:30', venue: '西体育館 メインアリーナ', cap: 7, need: 2 },
 ];
-// 振替先にできるクラス（config.makeup「指定したクラス」）
+// 振替先にできるクラス（クラブが決める「振替先にできるクラス」）
 export const MAKEUP_TO = { c1: ['c4'], c4: ['c1'], c2: ['c3'], c3: ['c2'] };
 
 const PLANS = [
@@ -187,12 +187,12 @@ export function seed() {
   }
 
   const db0 = {
-    v: 1, stage: 3,
-    club: { name: 'さくら体操クラブ', slug: 'sakura' },
+    v: 2, stage: 3,
+    club: { name: 'サンプル体操クラブ', slug: 'sample' },
     rules: { expiry: 'next_month_end', approval: 'auto', monthlyLimit: 2, deadlineHours: 2, perSessionCancel: 'reduce' },
     terms: [
-      { v: 1, on: '2025-04-01', body: '第1条（目的）\nこの規約は、さくら体操クラブ（以下「クラブ」）の会員が守ることを定めます。\n\n第2条（月謝）\n月謝は毎月末日までにお支払いください。' },
-      { v: 2, on: '2026-10-01', body: '第1条（目的）\nこの規約は、さくら体操クラブ（以下「クラブ」）の会員が守ることを定めます。\n\n第2条（月謝）\n月謝は毎月末日までにお支払いください。\n\n第3条（振替）\n締切までに欠席の連絡をした回は、翌月末までに振替ができます。' },
+      { v: 1, on: '2025-04-01', body: '第1条（目的）\nこの規約は、サンプル体操クラブ（以下「クラブ」）の会員が守ることを定めます。\n\n第2条（月謝）\n月謝は毎月末日までにお支払いください。' },
+      { v: 2, on: '2026-10-01', body: '第1条（目的）\nこの規約は、サンプル体操クラブ（以下「クラブ」）の会員が守ることを定めます。\n\n第2条（月謝）\n月謝は毎月末日までにお支払いください。\n\n第3条（振替）\n締切までに欠席の連絡をした回は、翌月末までに振替ができます。' },
     ],
     classes: CLASSES.map((c) => ({ ...c })),
     plans: PLANS.map((p) => ({ ...p })),
@@ -248,7 +248,7 @@ export function seed() {
   return db0;
 }
 
-// その月の請求の1行（算出した時点の金額・プラン名を保存する。仕様書 4-9）
+// その月の請求の1行（算出した時点の金額・プラン名を保存する）
 export function feeRecord(d, m, ym, paid = false) {
   const plan = d.plans.find((p) => p.id === m.planId);
   const count = plan.kind === 'per_session'
@@ -266,7 +266,7 @@ export const feeTotal = (r) => r.base + r.radj + r.oadj;
 function read() {
   try {
     const raw = localStorage.getItem(KEY);
-    if (raw) { const d = JSON.parse(raw); if (d?.v === 1) return d; }
+    if (raw) { const d = JSON.parse(raw); if (d?.v === 2) return d; }
   } catch { /* 使えなければ最初のデータ */ }
   return seed();
 }
@@ -335,7 +335,7 @@ export function creditExpiry(fromDate) {
   return monthEnd(addMonths(monthOf(fromDate), 1));
 }
 
-// 振替先の候補（空きのある日・期限内・確定した月・月の上限）。選べない日は出さない（工程7-6）
+// 振替先の候補（空きのある日・期限内・確定した月・月の上限）。選べない日は出さない
 export function makeupCandidates(m, credit) {
   const allowed = MAKEUP_TO[m.classId] ?? [];
   return db.sessions.filter((s) => {
@@ -427,4 +427,4 @@ export async function copyText(text) {
   try { await navigator.clipboard.writeText(text); showToast('コピーしました。クラブのLINEに貼り付けて送ってください'); }
   catch { showToast('コピーできませんでした。文を選んでコピーしてください'); }
 }
-export const appUrl = () => `https://miniapp.line.me/（LIFF ID）/${db.club.slug}/`;
+export const appUrl = () => '（ここに、クラブ専用のアプリのリンクが入ります）';
